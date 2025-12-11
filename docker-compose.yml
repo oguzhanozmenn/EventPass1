@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  # 1. Veritabanı Servisi (PostgreSQL)
+  db:
+    image: postgres:15
+    container_name: eventpass_db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: BURAYA_KENDI_SIFRENI_YAZ
+      POSTGRES_DB: eventpass_db
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      # Şemayı otomatik yükle: Tabloları ilk açılışta kurar
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+    ports:
+      - "5433:5432" # Bilgisayarındaki yerel Postgres ile çakışmasın diye 5433 yaptık
+
+  # 2. Web Uygulaması Servisi (PHP + Apache)
+  app:
+    build: .
+    container_name: eventpass_app
+    ports:
+      - "8000:80" # Tarayıcıda localhost:8000 yazınca buraya gelecek
+    volumes:
+      - .:/var/www/html # Kod değişikliğini anında gör (Hot Reload)
+    environment:
+      - DB_HOST=db # PHP, veritabanına 'db' ismiyle ulaşacak
+    depends_on:
+      - db
+
+volumes:
+  pgdata:
