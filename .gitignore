@@ -1,0 +1,16 @@
+# Mac Sistem Dosyaları
+.DS_Store
+
+# Python Gereksizleri
+__pycache__/
+*.py[cod]
+venv/
+.env
+
+# Editör Dosyaları (VSCode / IntelliJ vb.)
+.idea/
+.vscode/
+*.swp
+
+# Docker (eğer log dosyaları oluşuyorsa)
+*.log
