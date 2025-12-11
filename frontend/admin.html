@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Paneli - EventPass</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .admin-container { max-width: 600px; margin: 40px auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+        .form-row { display: flex; gap: 15px; }
+        .form-group { margin-bottom: 15px; flex: 1; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: #2c3e50; }
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; font-size: 14px;
+        }
+        .form-group input[type="file"] { border: none; padding: 0; }
+        .btn-add { width: 100%; background: #27ae60; color: white; padding: 12px; border: none; border-radius: 4px; font-size: 16px; cursor: pointer; font-weight: bold; }
+        .btn-add:hover { background: #219150; }
+        .preview-img { max-width: 100%; height: auto; margin-top: 10px; border-radius: 4px; display: none; }
+        .back-link { display: block; text-align: center; margin-top: 20px; color: #7f8c8d; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1>EventPass 🛡️ Admin Paneli</h1>
+        <nav>
+            <a href="index.html">Siteye Dön</a>
+            <a href="#" id="admin-logout">Çıkış Yap</a>
+        </nav>
+    </div>
+</header>
+
+<div class="admin-container">
+    <h2 style="text-align: center; margin-bottom: 20px;">Yeni Etkinlik Oluştur</h2>
+
+    <form id="add-event-form" enctype="multipart/form-data">
+
+        <div class="form-group">
+            <label>Etkinlik Başlığı</label>
+            <input type="text" name="title" placeholder="Örn: Tarkan Konseri" required>
+        </div>
+
+        <div class="form-group">
+            <label>Açıklama</label>
+            <textarea name="description" rows="3" placeholder="Etkinlik hakkında detaylar..." required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Kategori</label>
+            <select name="category" required>
+                <option value="concert">🎵 Konser</option>
+                <option value="theater">🎭 Tiyatro</option>
+                <option value="standup">🎤 Stand-up</option>
+                <option value="cinema">🎬 Sinema</option>
+                <option value="festival">🎪 Festival</option>
+                <option value="other">📌 Diğer</option>
+            </select>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label>Tarih ve Saat</label>
+                <input type="datetime-local" name="date" required>
+            </div>
+            <div class="form-group">
+                <label>Mekan</label>
+                <input type="text" name="venue" placeholder="Örn: Harbiye Açıkhava" required>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label>Bilet Fiyatı (₺)</label>
+                <input type="number" step="0.01" name="price" required>
+            </div>
+            <div class="form-group">
+                <label>Kapasite (Kişi)</label>
+                <input type="number" name="capacity" value="100" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Organizatör (Opsiyonel)</label>
+            <input type="text" name="organizer" placeholder="Örn: BKM Mutfak">
+        </div>
+
+        <div class="form-group">
+            <label>Etkinlik Afişi</label>
+            <input type="file" name="image" id="image-input" accept="image/*" required>
+            <img id="image-preview" class="preview-img" src="" alt="Önizleme">
+        </div>
+
+        <button type="submit" class="btn-add">✅ Etkinliği Oluştur</button>
+    </form>
+
+    <a href="index.html" class="back-link">← Ana Sayfaya Dön</a>
+</div>
+
+<script type="module" src="js/admin.js"></script>
+</body>
+</html>

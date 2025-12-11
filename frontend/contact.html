@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>İletişim - EventPass</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .contact-form input, .contact-form textarea {
+            width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px;
+        }
+        .btn-send { background: #3498db; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <h1><a href="./index.html" style="color: white; text-decoration: none;">EventPass 🎟️</a></h1>
+        <nav><a href="./index.html">Ana Sayfa</a></nav>
+    </div>
+</header>
+
+<main class="container" style="max-width: 600px; background: white; padding: 40px; border-radius: 8px; margin-top: 20px;">
+    <h2>İletişim</h2>
+    <p>Sorularınız mı var? Bize ulaşın.</p>
+
+    <div style="margin-bottom: 30px; padding: 15px; background: #f9f9f9; border-radius: 5px;">
+        <strong>📍 Adres:</strong> Maslak Mah. Büyükdere Cad. No:1, İstanbul<br>
+        <strong>📧 E-posta:</strong> destek@eventpass.com<br>
+        <strong>☎️ Telefon:</strong> +90 212 555 00 00
+    </div>
+
+    <form class="contact-form">
+        <label>Adınız Soyadınız</label>
+        <input type="text" placeholder="Adınız...">
+
+        <label>Konu</label>
+        <input type="text" placeholder="Ne hakkında görüşmek istersiniz?">
+
+        <label>Mesajınız</label>
+        <textarea rows="5" placeholder="Mesajınızı buraya yazın..."></textarea>
+
+        <button type="button" class="btn-send" onclick="alert('Mesajınız alındı! En kısa sürede döneceğiz.')">Gönder</button>
+    </form>
+</main>
+</body>
+</html>

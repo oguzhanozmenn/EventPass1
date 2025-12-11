@@ -1,0 +1,218 @@
+/* Temel Ayarlar */
+body { font-family: 'Segoe UI', sans-serif; margin: 0; background-color: #f4f4f9; color: #333; }
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* Header */
+header { background: #2c3e50; color: white; padding: 1rem 0; margin-bottom: 2rem; }
+header .container { display: flex; justify-content: space-between; align-items: center; }
+header h1 { margin: 0; font-size: 1.5rem; }
+header a { color: white; text-decoration: none; margin-left: 20px; }
+.btn-login { background: #e74c3c; padding: 8px 15px; border-radius: 4px; }
+
+/* Grid Yapısı (Kartlar Yan Yana) */
+.grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+
+/* Etkinlik Kartı Tasarımı */
+.event-card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.1); transition: transform 0.2s; }
+.event-card:hover { transform: translateY(-5px); }
+.card-header { background: #3498db; color: white; padding: 15px; }
+.card-body { padding: 15px; }
+.price-tag { float: right; font-weight: bold; color: #27ae60; font-size: 1.2rem; }
+.details-tag { display: inline-block; background: #ecf0f1; padding: 4px 8px; border-radius: 12px; font-size: 0.8rem; margin-top: 10px; color: #7f8c8d; }
+.btn-buy {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s;
+}
+
+.btn-buy:hover {
+    background-color: #2980b9;
+}
+
+.btn-buy:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+}
+input:focus, textarea:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+}/* --- MODERN FİLTRELEME ALANI --- */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 15px;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* Hafif gölge */
+}
+
+.page-header h2 { margin: 0; color: #2c3e50; }
+
+.filter-bar {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* Modern Arama Çubuğu */
+.search-box input {
+    width: 250px;
+    padding: 12px 20px;
+    border: 2px solid #eee;
+    border-radius: 30px; /* Tam oval kenarlar */
+    font-size: 14px;
+    transition: all 0.3s ease;
+    background-color: #f9f9f9;
+}
+
+.search-box input:focus {
+    background-color: white;
+    border-color: #3498db;
+    box-shadow: 0 0 10px rgba(52, 152, 219, 0.2); /* Odaklanınca mavi ışık */
+    outline: none;
+}
+
+/* Modern Seçim Kutusu */
+.sort-box select {
+    padding: 12px 20px;
+    border: 2px solid #eee;
+    border-radius: 30px;
+    background-color: #f9f9f9;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sort-box select:focus {
+    border-color: #3498db;
+    background-color: white;
+    outline: none;
+}
+
+/* Mobilde tam genişlik */
+@media (max-width: 768px) {
+    .page-header { flex-direction: column; align-items: stretch; }
+    .filter-bar { flex-direction: column; }
+    .search-box input, .sort-box select { width: 100%; }
+}
+/* --- KATEGORİ MENÜSÜ --- */
+.category-menu {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    overflow-x: auto; /* Mobilde yana kaydırma */
+    padding-bottom: 5px; /* Kaydırma çubuğu için boşluk */
+    white-space: nowrap;
+}
+
+.cat-btn {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 25px; /* Hap şeklinde */
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #555;
+    font-weight: 500;
+}
+
+.cat-btn:hover {
+    border-color: #3498db;
+    color: #3498db;
+    transform: translateY(-2px);
+}
+
+/* Aktif Buton Stili */
+.cat-btn.active {
+    background: #3498db;
+    color: white;
+    border-color: #3498db;
+    box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+}
+footer {
+    background-color: #1a1a1a; /* Görseldeki koyu gri */
+    color: #b3b3b3;
+    padding-top: 50px;
+    margin-top: 60px; /* İçerikten biraz ayrılsın */
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 80px; /* Sütunlar arası boşluk */
+    padding-bottom: 50px;
+}
+
+.footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Linkler arası boşluk */
+}
+
+.footer-col a {
+    color: #b3b3b3;
+    text-decoration: none;
+    transition: color 0.3s;
+    text-transform: uppercase; /* Hepsi büyük harf olsun */
+    letter-spacing: 0.5px;
+}
+
+.footer-col a:hover {
+    color: white; /* Üzerine gelince parlasın */
+}
+
+/* Yeşil Blog Butonu */
+.btn-blog-footer {
+    background-color: #4cd137; /* Görseldeki yeşil tonu */
+    color: white !important;
+    padding: 8px 25px;
+    border-radius: 20px; /* Hap şeklinde */
+    display: inline-block;
+    width: fit-content;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.btn-blog-footer:hover {
+    background-color: #44bd32;
+    transform: scale(1.05);
+}
+
+/* En alt şerit */
+.footer-bottom {
+    background-color: #111;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+    border-top: 1px solid #333;
+}
+
+/* Mobilde footer sütunlarını alt alta al */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+    .footer-col {
+        align-items: center; /* Linkleri ortala */
+    }
+    .btn-blog-footer {
+        margin: 10px auto; /* Butonu ortala */
+    }
+}
